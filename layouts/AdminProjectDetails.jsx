@@ -7,7 +7,7 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 import ProjectStats from "components/Projects/ProjectStats";
 
-export default function AdminProjects({ children }) {
+export default function AdminProjectDetails({ children ,project}) {
   return (
     <>
       <Sidebar />

@@ -29,4 +29,6 @@ commit.sh
 
 .env
 .package-lock.json
+payload.json
+
 

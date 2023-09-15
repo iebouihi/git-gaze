@@ -20,7 +20,7 @@ export const GET = async (request) => {
     } catch (error) {
         console.log(error);
     }
-    console.log("Getting {} projects from gitlab", projects.length);
+   // console.log("Getting {} projects from gitlab", projects.length);
     return new Response(JSON.stringify(projects), { status: 201 })
 
 
