@@ -46,7 +46,7 @@ export default function SummaryStats({
                     : ""
                 }
               ></i>{" "}
-              {statPercent}%
+              {statPercent? statPercent +"%"  :""}
             </span>
             <span className="whitespace-nowrap">{statDescripiron}</span>
           </p>

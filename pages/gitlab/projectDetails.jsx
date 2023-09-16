@@ -5,7 +5,7 @@ import AdminProjectDetails from "layouts/AdminProjectDetails";
 //Functions
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import MergerRequestsTable from "@/components/Projects/MergeRequestTable";
+import MergerRequestsTable from "@/components/MergeRequest/MergeRequestTable";
 import ProjectStats from "@/components/Projects/ProjectStats";
 
 

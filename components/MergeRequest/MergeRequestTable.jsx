@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import MergeRequestNotes from "./MergeRequestNotes";
 
 export default function MergerRequestsTable({ color, project, mergeRequests }) {
   return (
@@ -89,9 +90,9 @@ export default function MergerRequestsTable({ color, project, mergeRequests }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  Discussions
+                  Notes
                 </th>
-               
+
 
               </tr>
             </thead>
@@ -115,7 +116,7 @@ export default function MergerRequestsTable({ color, project, mergeRequests }) {
                   </th>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <a href={mergeRequest.web_url} target="_blank" rel="noreferrer">
-                    {mergeRequest.title}
+                      {mergeRequest.title}
                     </a>
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
@@ -127,14 +128,21 @@ export default function MergerRequestsTable({ color, project, mergeRequests }) {
                       {mergeRequest.merged_at}
                     </div>
                   </td>
-                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    {
-                      Math.floor((new Date(mergeRequest.merged_at) - new Date(mergeRequest.created_at)) / (1000 * 60))< 60 ? "! Less than an hour" : Math.floor((new Date(mergeRequest.merged_at) - new Date(mergeRequest.created_at)) / (1000 * 60 * 60)) + " hours"
+                  <td className="border-t-0 px-12 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {mergeRequest.merged_at ?
+                      (Math.floor((new Date(mergeRequest.merged_at) - new Date(mergeRequest.created_at)) / (1000 * 60)) < 60 ?
+                        (<p className="text-xl" style={{color: "#dd4c0e"}}> 
+                        <i className="fas fa-fighter-jet" title="Less Then an hour!"/>
+                        </p>) :
+                        (Math.floor((new Date(mergeRequest.merged_at) - new Date(mergeRequest.created_at)) / (1000 * 60 * 60)) + " hours"))
+                      : ("")
 
                     }
+                   
+                   
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    {mergeRequest.user_notes_count}
+                    <MergeRequestNotes projectId={project.id} mergeRequestIID={mergeRequest.iid} />
                   </td>
                 </tr>))}
 

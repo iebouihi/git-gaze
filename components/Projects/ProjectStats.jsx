@@ -2,7 +2,7 @@ import React from "react";
 
 // components
 
-import CardStats from "components/Stats/SummaryStats.js";
+import SummaryStats from "components/Stats/SummaryStats.js";
 
 export default function ProjectsStats({stats}) {
   console.log("Stats",stats);
@@ -15,35 +15,35 @@ export default function ProjectsStats({stats}) {
             {/* Card stats */}
             <div className="flex flex-wrap">
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
+                <SummaryStats
                   statSubtitle="MERGE REQUESTS"
                   statTitle={stats.get("total")}
-                  statArrow="up"
-                  statPercent="3.48"
+                  statArrow=""
+                  statPercent=""
                   statPercentColor="text-emerald-500"
-                  statDescripiron="Total Merge Requests"
-                  statIconName="far fa-chart-bar"
+                  statDescripiron=""
+                  statIconName="fas fa-code-branch"
                   statIconColor="bg-red-500"
                 />
               </div>
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
+                <SummaryStats
                   statSubtitle="MERGED"
                   statTitle={stats.get("merged")}
-                  statArrow="down"
+                  statArrow=""
                   statPercent={stats.get("percent_merged")}
-                  statPercentColor="text-red-500"
+                  statPercentColor="text-emerald-500"
                   statDescripiron="of Merge Requests are merged"
-                  statIconName="fas fa-chart-pie"
+                  statIconName="fas fa-check-circle"
                   statIconColor="bg-orange-500"
                 />
               </div>
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
+                <SummaryStats
                   statSubtitle="MEMBERS"
                   statTitle={stats.get("members")}
-                  statArrow="down"
-                  statPercent="1.10"
+                  statArrow=""
+                  statPercent=""
                   statPercentColor="text-orange-500"
                   statDescripiron="Total Members"
                   statIconName="fas fa-users"
@@ -51,7 +51,7 @@ export default function ProjectsStats({stats}) {
                 />
               </div>
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
+                <SummaryStats
                   statSubtitle="PERFORMANCE"
                   statTitle="49,65%"
                   statArrow="up"
