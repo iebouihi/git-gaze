@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MergeRequestNotes from "./MergeRequestNotes";
+import { format } from 'date-fns';
 
 export default function MergerRequestsTable({ color, project, mergeRequests }) {
   return (
@@ -121,11 +122,11 @@ export default function MergerRequestsTable({ color, project, mergeRequests }) {
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
 
-                    {mergeRequest.created_at}
+                    {mergeRequest.created_at ? format(new Date(mergeRequest.created_at),'dd-MM-yyyy , h:mm a'):""}
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <div className="flex">
-                      {mergeRequest.merged_at}
+                      {mergeRequest.merged_at ? format(new Date(mergeRequest.merged_at),'dd-MM-yyyy, h:mm a'):""}
                     </div>
                   </td>
                   <td className="border-t-0 px-12 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
