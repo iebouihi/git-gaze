@@ -39,9 +39,20 @@ export default function ProjectDetails() {
     getMergeReuests(id)
       .then(data => {
         setMergeRequests(data);
+        console.log("Getting stats ");
         statsMap.set("total", data.length);
         statsMap.set("merged", data.filter(mr => mr.state === "merged").length);
         statsMap.set("percent_merged", (statsMap.get("merged") / statsMap.get("total")) * 100);
+
+        //set total number of notes
+        var totalNotes = 0;
+        data.forEach(mr => {
+          totalNotes += mr.user_notes_count;
+        } );
+
+        //Set average number of notes per MR
+        //console.log("Total notes", totalNotes);
+       statsMap.set("average_note_per_mr", totalNotes*1/data.length*1);
         
 
       }).catch(error => {

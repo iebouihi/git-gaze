@@ -133,7 +133,7 @@ export default function MergerRequestsTable({ color, project, mergeRequests }) {
                     {mergeRequest.merged_at ?
                       (Math.floor((new Date(mergeRequest.merged_at) - new Date(mergeRequest.created_at)) / (1000 * 60)) < 60 ?
                         (<p className="text-xl" style={{color: "#dd4c0e"}}> 
-                        <i className="fas fa-fighter-jet" title="Less Then an hour!"/>
+                        <i className="fas fa-fighter-jet" title="May not be reviewed!"/>
                         </p>) :
                         (Math.floor((new Date(mergeRequest.merged_at) - new Date(mergeRequest.created_at)) / (1000 * 60 * 60)) + " hours"))
                       : ("")

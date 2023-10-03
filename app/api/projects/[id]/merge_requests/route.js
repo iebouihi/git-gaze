@@ -6,7 +6,7 @@ export const GET = async (request, { params }) => {
     const projectsAPi = process.env.GITLAB_URL + '/api/v4/projects/' + projectID + '/merge_requests';
     const accessToken = process.env.GITLAB_ACCESS_TOKEN;
 
-    console.log("Access Token ", accessToken);
+    //console.log("Access Token ", accessToken);
 
     var mergeRequests = [];
 
@@ -22,7 +22,7 @@ export const GET = async (request, { params }) => {
     } catch (error) {
         console.log(error);
     }
-    console.log("Getting ", mergeRequests.length, " merge requests for project ", projectID);
+    //console.log("Getting ", mergeRequests.length, " merge requests for project ", projectID);
     return new Response(JSON.stringify(mergeRequests), { status: 200 })
 
 
